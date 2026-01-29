@@ -65,4 +65,16 @@ class AdminController extends Controller
 
         return redirect()->back()->with($notification);
     }
+
+    public function AdminChangePassword(){
+        return view('admin.admin_change_password');
+    }
+
+    public function AdminUpdatePassword(Request $request){
+        //validation
+        $request->validate([
+            'old_password' => 'required',
+            'old_password' => 'required'
+        ]);
+    }
 }
