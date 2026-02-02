@@ -31,7 +31,7 @@
                                          
     <form id="editBranchForm" method="post" action="{{ route('update.branch') }}">
         @csrf
-        <input type="hidden" name="id" id="{{ $branch->id }}">
+        <input type="hidden" name="id" value="{{ $branch->id }}">
         <div class="row">
             <div class="form-group col-md-6 mb-3">
                 <label for="inputEmail4" class="form-label">Branch Name </label>
