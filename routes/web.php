@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BranchController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 
 /*
@@ -48,4 +49,16 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
 Route::get('/admin/login',[AdminController::class,'AdminLogin'])->middleware(RedirectIfAuthenticated::class)->name('admin.login');
 Route::get('/admin/logout/page',[AdminController::class,'AdminLogoutPage'])->name('admin.logout.page');
+
+//All Branch related route
+Route::middleware(['auth','role:admin'])->group(function(){
+    Route::controller(BranchController::class)->group(function(){
+        Route::get('/all/branch','AllBranch')->name('all.branch');
+        Route::get('/add/branch','AddBranch')->name('add.branch');
+        Route::post('/store/branch','StoreBranch')->name('store.branch');
+        Route::get('/edit/branch/{id}','EditBranch')->name('edit.branch');
+        Route::post('/update/branch','UpdateBranch')->name('update.branch');
+    });
+});
+
 
