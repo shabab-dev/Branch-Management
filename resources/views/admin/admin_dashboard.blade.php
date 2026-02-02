@@ -32,6 +32,7 @@
         <link href="{{ asset('backend/libs/datatables.net-select-bs5/css//select.bootstrap5.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- datatables css end -->
 
+
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
     </head>
 
@@ -502,6 +503,9 @@
         <!-- Datatables init -->
         <script src="{{ asset('backend/js/pages/datatables.init.js') }}"></script>
 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="{{ asset('backend/js/code.js') }}"></script>
+        
         <!-- Toastr -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 

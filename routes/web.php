@@ -58,6 +58,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::post('/store/branch','StoreBranch')->name('store.branch');
         Route::get('/edit/branch/{id}','EditBranch')->name('edit.branch');
         Route::post('/update/branch','UpdateBranch')->name('update.branch');
+        Route::get('/delete/branch/{id}','DeleteBranch')->name('delete.branch');
     });
 });
 

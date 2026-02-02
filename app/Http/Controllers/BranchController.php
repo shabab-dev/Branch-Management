@@ -51,4 +51,14 @@ class BranchController extends Controller
 
         return redirect()->route('all.branch')->with($notification);
     }
+
+    public function DeleteBranch($id){
+        Branch::findOrFail($id)->delete();
+        
+        $notification = array(
+            'message' => 'Branch Deleted Successfully',
+            'alert-type' => 'info'
+        );
+        return redirect()->back()->with($notification);
+    }
 }
