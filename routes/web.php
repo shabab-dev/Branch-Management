@@ -66,9 +66,9 @@ Route::middleware(['auth','role:admin'])->group(function(){
     Route::controller(AdminController::class)->group(function(){
         Route::get('/all/manager','AllManager')->name('all.manager');
         Route::get('/add/manager','AddManager')->name('add.manager');
-        //Route::post('/store/branch','StoreBranch')->name('store.branch');
+        Route::post('/store/manager','StoreManager')->name('store.manager');
         Route::get('/edit/manager/{id}','EditManager')->name('edit.manager');
-        //Route::post('/update/branch','UpdateBranch')->name('update.branch');
+        Route::post('/update/manager','UpdateManager')->name('update.manager');
         Route::get('/delete/manager/{id}','DeleteManager')->name('delete.manager');
     });
 });

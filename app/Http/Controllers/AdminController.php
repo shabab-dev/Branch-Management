@@ -97,7 +97,66 @@ class AdminController extends Controller
 
     //AddManager method
     public function AddManager(){
-
+        return view('manager.add_manager');
     }
 
+    //StoreManager method
+    public function StoreManager(Request $request){
+        $user = new User();
+        $user->username = $request->username;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->password = Hash::make($request->password);
+        $user->role = 'branch-manager';
+        $user->status = 'inactive';
+        $user->save();
+
+        $notification = array(
+            'message' => 'New Branch Manager Created Successfully',
+            'alert-type' => 'success'
+
+        );
+
+        return redirect()->route('all.manager')->with($notification);
+    }
+
+    //EditManager method
+    public function EditManager($id){
+        $manager = User::findOrFail($id);
+        return view('manager.edit_manager',compact('managerData'));  
+    }
+
+    //update method
+    public function UpdateManager(Request $request){
+        $manager_id = $request->id;
+
+        $user = User::findOrFail($manager_id);
+        $user->username = $request->username;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone; 
+        $user->role = 'branch-manager';
+        $user->status = 'inactive';
+        $user->save();
+
+         $notification = array(
+            'message' => 'Manager Info Updated Successfully',
+            'alert-type' => 'success'
+
+        );
+        return redirect()->route('all.manager')->with($notification);
+    }
+    //delete method
+    public function DeleteManager($id){
+        User::findOrFail($id)->delete();
+
+         $notification = array(
+            'message' => 'Manager Deleted Successfully',
+            'alert-type' => 'success'
+
+        );
+
+        return redirect()->back()->with($notification);
+    }
 }

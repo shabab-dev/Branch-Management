@@ -113,7 +113,7 @@
                                         </li>
 
                                          <li>
-                                            <a href="auth-login.html">Add Manager</a>
+                                            <a href="{{ route('add.manager') }}">Add Manager</a>
                                         </li>
                                         
                                         
