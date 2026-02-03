@@ -52,6 +52,7 @@ Route::get('/admin/logout/page',[AdminController::class,'AdminLogoutPage'])->nam
 
 //All Branch related route
 Route::middleware(['auth','role:admin'])->group(function(){
+    // Branch
     Route::controller(BranchController::class)->group(function(){
         Route::get('/all/branch','AllBranch')->name('all.branch');
         Route::get('/add/branch','AddBranch')->name('add.branch');
@@ -59,6 +60,16 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::get('/edit/branch/{id}','EditBranch')->name('edit.branch');
         Route::post('/update/branch','UpdateBranch')->name('update.branch');
         Route::get('/delete/branch/{id}','DeleteBranch')->name('delete.branch');
+    });
+
+    // BranchManager
+    Route::controller(AdminController::class)->group(function(){
+        Route::get('/all/manager','AllManager')->name('all.manager');
+        Route::get('/add/manager','AddManager')->name('add.manager');
+        //Route::post('/store/branch','StoreBranch')->name('store.branch');
+        Route::get('/edit/manager/{id}','EditManager')->name('edit.manager');
+        //Route::post('/update/branch','UpdateBranch')->name('update.branch');
+        Route::get('/delete/manager/{id}','DeleteManager')->name('delete.manager');
     });
 });
 

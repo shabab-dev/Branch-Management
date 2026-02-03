@@ -37,8 +37,6 @@ class BranchController extends Controller
 
     public function UpdateBranch(Request $request){
         $branch_id = $request->id;
-        var_dump($branch_id);
-        die();
         Branch::findOrFail($branch_id)->update([
             'branch_name' => $request->branch_name,
             'branch_slug' => strtolower(str_replace(' ','-',$request->branch_name))

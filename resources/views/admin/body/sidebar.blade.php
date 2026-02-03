@@ -103,17 +103,17 @@
                             <li>
                                 <a href="#sidebarAuth" data-bs-toggle="collapse">
                                     <i class="mdi mdi-account-circle-outline"></i>
-                                    <span> Auth Pages </span>
+                                    <span> Branch Manager's </span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <div class="collapse" id="sidebarAuth">
                                     <ul class="nav-second-level">
                                         <li>
-                                            <a href="auth-login.html">Log In</a>
+                                            <a href="{{ route('all.manager') }}">All Manageres</a>
                                         </li>
 
                                          <li>
-                                            <a href="auth-login.html">Log In</a>
+                                            <a href="auth-login.html">Add Manager</a>
                                         </li>
                                         
                                         
