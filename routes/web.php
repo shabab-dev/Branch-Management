@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::middleware(['auth','role:admin'])->group(function(){
+Route::middleware(['auth','role:admin|branch-manager'])->group(function(){
     Route::get('/admin/dashboard',[AdminController::class,'AdminDashboard'])->name('admin.dashboard');
     //admin.logout
     Route::get('/admin/logout',[AdminController::class,'AdminLogout'])->name('admin.logout');
@@ -51,7 +51,7 @@ Route::get('/admin/login',[AdminController::class,'AdminLogin'])->middleware(Red
 Route::get('/admin/logout/page',[AdminController::class,'AdminLogoutPage'])->name('admin.logout.page');
 
 //All Branch related route
-Route::middleware(['auth','role:admin'])->group(function(){
+Route::middleware(['auth','role:admin|branch-manager'])->group(function(){
     // Branch
     Route::controller(BranchController::class)->group(function(){
         Route::get('/all/branch','AllBranch')->name('all.branch');

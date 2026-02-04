@@ -33,6 +33,15 @@ class UsersTableSeeder extends Seeder
                 'role' => 'user',
                 'status' => 'active'
             ],
+            //branch-manager
+            [
+                'name' => 'Branch Manager',
+                'username' => 'bmanager',
+                'email' => 'bmanager@gmail.com',
+                'password' => Hash::make('111'),
+                'role' => 'branch-manager',
+                'status' => 'active'
+            ],
         ]);
     }
 }

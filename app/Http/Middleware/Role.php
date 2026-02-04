@@ -15,7 +15,9 @@ class Role
      */
     public function handle(Request $request, Closure $next, $role): Response
     {
-        if($request->user()->role !== $role){
+        //Split the string 'admin|branch-manager' into an array ['admin', 'branch-manager']
+        $roles = explode('|', $role);
+        if (!in_array($request->user()->role, $roles)) {
             return redirect('dashboard');
         }
         return $next($request);

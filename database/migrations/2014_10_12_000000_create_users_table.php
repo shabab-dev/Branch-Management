@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('photo')->nullable();
             $table->string('phone')->nullable();
-            $table->enum('role',['admin','user'])->default('user');
+            $table->enum('role',['admin','user','branch-manager'])->default('user');
             $table->enum('status',['active','inactive'])->default('active');
             $table->rememberToken();
             $table->timestamps();

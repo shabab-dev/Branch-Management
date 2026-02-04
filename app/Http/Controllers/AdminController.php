@@ -91,7 +91,7 @@ class AdminController extends Controller
 
     //All Manager method
     public function AllManager(){
-        $alladminuser = User::where('role','admin')->latest()->get();
+        $alladminuser = User::where('role','branch-manager')->latest()->get();
         return view('manager.all_manager',compact('alladminuser'));
     }
 
