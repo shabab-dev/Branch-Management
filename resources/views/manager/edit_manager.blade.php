@@ -35,20 +35,20 @@
                                             <div class="row">
                                                 <div class="form-group col-md-6 mb-3">
                                                     <label for="inputEmail4" class="form-label">Manager Name</label>
-                                                    <input type="text" name="name" class="form-control" id="inputEmail4" value={{ $managerData->name }}>
+                                                    <input type="text" name="name" class="form-control" id="inputEmail4" value="{{ $managerData->name }}" />
                                                 </div>
                                                 <div class="form-group col-md-6 mb-3">
                                                     <label for="inputEmail4" class="form-label">User Name</label>
-                                                    <input type="text" name="username" class="form-control" id="inputEmail4" value={{ $managerData->username }}>
+                                                    <input type="text" name="username" class="form-control" id="inputEmail4" value="{{ $managerData->username }}" />
                                                 </div>
                                                 <div class="form-group col-md-6 mb-3">
                                                     <label for="inputEmail4" class="form-label">Email</label>
-                                                    <input type="email" name="email" class="form-control" id="inputEmail4" value={{ $managerData->email }}>
+                                                    <input type="email" name="email" class="form-control" id="inputEmail4" value="{{ $managerData->email }}" />
                                                 </div>
 
                                                 <div class="form-group col-md-6 mb-3">
                                                     <label for="inputEmail4" class="form-label">Phone</label>
-                                                    <input type="text" name="phone" class="form-control" id="inputEmail4" value={{ $managerData->phone }}>
+                                                    <input type="text" name="phone" class="form-control" id="inputEmail4" value="{{ $managerData->phone }}" />
                                                 </div>
                                             </div>
                                     

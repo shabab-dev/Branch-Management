@@ -70,6 +70,8 @@ Route::middleware(['auth','role:admin|branch-manager'])->group(function(){
         Route::get('/edit/manager/{id}','EditManager')->name('edit.manager');
         Route::post('/update/manager','UpdateManager')->name('update.manager');
         Route::get('/delete/manager/{id}','DeleteManager')->name('delete.manager');
+        Route::get('/inactive/manager/{id}','InactiveManager')->name('inactive.manager');
+        Route::get('/active/manager/{id}','ActiveAManager')->name('active.manager');
     });
 });
 

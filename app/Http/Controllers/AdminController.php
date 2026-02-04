@@ -123,7 +123,7 @@ class AdminController extends Controller
 
     //EditManager method
     public function EditManager($id){
-        $manager = User::findOrFail($id);
+        $managerData = User::findOrFail($id);
         return view('manager.edit_manager',compact('managerData'));  
     }
 
@@ -158,5 +158,34 @@ class AdminController extends Controller
         );
 
         return redirect()->back()->with($notification);
+    }
+
+
+    public function InactiveManager($id){
+
+        User::findOrFail($id)->update(['status' => 'inactive']);
+
+        $notification = array(
+            'message' => 'Manager Id Inactive',
+            'alert-type' => 'success'
+
+        );
+
+        return redirect()->back()->with($notification);
+
+    } 
+
+     public function ActiveAManager($id){
+
+        User::findOrFail($id)->update(['status' => 'active']);
+
+        $notification = array(
+            'message' => 'Manager Id Active',
+            'alert-type' => 'success'
+
+        );
+
+        return redirect()->back()->with($notification);
+
     }
 }

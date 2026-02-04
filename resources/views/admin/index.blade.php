@@ -1,6 +1,20 @@
 @extends('admin.admin_dashboard')
 @section('admin') 
+@php
+    $id = Auth::user()->id;
+    $userid = App\Models\User::find($id);
+    $status = $userid->status;
 
+@endphp
+
+<div class="content">
+
+    @if($status == 'active')
+        <h4>Manager Account Is <span class="text-success">Active </span> </h4>
+    @else
+        <h4>Manager Account Is <span class="text-danger">InActive </span> </h4>
+        <p class="text-danger"><b>Plz wait admin will check and approve your account</b></p>
+    @endif
 <div class="content">
 
                     <!-- Start Content-->
