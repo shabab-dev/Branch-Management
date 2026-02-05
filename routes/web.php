@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BranchController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 
 /*
@@ -72,6 +73,16 @@ Route::middleware(['auth','role:admin|branch-manager'])->group(function(){
         Route::get('/delete/manager/{id}','DeleteManager')->name('delete.manager');
         Route::get('/inactive/manager/{id}','InactiveManager')->name('inactive.manager');
         Route::get('/active/manager/{id}','ActiveAManager')->name('active.manager');
+    });
+
+    // Branch
+    Route::controller(EmployeeController::class)->group(function(){
+        Route::get('/all/employees','AllEmployees')->name('all.employees');
+        Route::get('/add/employee','AddEmployee')->name('add.employee');
+        //Route::post('/store/branch','StoreBranch')->name('store.branch');
+        //Route::get('/edit/branch/{id}','EditBranch')->name('edit.branch');
+        //Route::post('/update/branch','UpdateBranch')->name('update.branch');
+        //Route::get('/delete/branch/{id}','DeleteBranch')->name('delete.branch');
     });
 });
 

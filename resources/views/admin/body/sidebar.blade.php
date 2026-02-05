@@ -70,6 +70,28 @@
                                     </ul>
                                 </div>
                             </li>
+
+                            <li class="menu-title mt-2">Employee Settings</li>
+
+                            <li>
+                                <a href="#employee" data-bs-toggle="collapse">
+                                    <i class="mdi mdi-bookmark-multiple-outline"></i>
+                                    <span> Employee </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="employee">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="{{ route('all.employees') }}">All Employees</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('add.employee') }}">Add Employee</a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </li>
+
                             @endif
  
 
