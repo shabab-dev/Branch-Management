@@ -13,7 +13,7 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
 
@@ -46,11 +46,22 @@
                 </div>
             @endif
         </div>
+        <div>
+            <div class="mb-3">
+                <p class="text-sm mt-2 mr-5 text-gray-800 dark:text-gray-200">Profile Image <input type="file" name="user-photo" id="user-image" class="form-control"></p>
+            </div>
+        </div>
+        <div>
+            <div class="mb-3">
+                <p class="text-sm mt-2 mb-2 text-gray-800 dark:text-gray-200">Active Avatar</p>
+                <img id="showUserImage" src="{{ (!empty($user->photo)) ? url('upload/user_images/'.$user->photo): url('upload/no_image.jpg') }} " class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
+            </div>
+        </div> <!-- end col -->
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
-            @if (session('status') === 'profile-updated')
+            {{-- @if (session('status') === 'profile-updated')
                 <p
                     x-data="{ show: true }"
                     x-show="show"
@@ -58,7 +69,33 @@
                     x-init="setTimeout(() => show = false, 2000)"
                     class="text-sm text-gray-600 dark:text-gray-400"
                 >{{ __('Saved.') }}</p>
-            @endif
+            @endif --}}
         </div>
     </form>
+    <style>
+        img#showUserImage {
+            box-shadow: 5px 9px 18px;
+            border-radius: 50%;
+            width: 20%;
+            border: 2px solid #dfdfdf;
+        }
+    </style>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const imageInput = document.querySelector('#user-image');
+            const displayImage = document.querySelector('#showUserImage');
+
+            imageInput.addEventListener('change', function(e) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    displayImage.setAttribute('src', e.target.result);
+                }
+
+                if (e.target.files && e.target.files[0]) {
+                    reader.readAsDataURL(e.target.files[0]);
+                }
+            });
+        });
+    </script>
 </section>
