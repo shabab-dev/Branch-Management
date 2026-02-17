@@ -13,7 +13,7 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
+    <form method="post" action="{{ route('profile.i9update') }}" class="mt-6 space-y-6">
         @csrf
         @method('patch')
         {{-- Personal Details --}}
@@ -149,6 +149,10 @@
                 <x-text-input id="passport_number" name="passport_number" type="text" class="mt-1 block w-full" :value="old('passport_number', $user->profile->passport_number ?? '')" />
             </div>
             <div>
+                <x-input-label for="passport_country" :value="__('Passport Country')" />
+                <x-text-input id="passport_country" name="passport_country" type="text" class="mt-1 block w-full" :value="old('passport_country', $user->profile->passport_country ?? '')" />
+            </div>
+            <div>
                 <x-input-label for="work_authorization_expiration" :value="__('Work Authorization Expiration')" />
                 <x-text-input id="work_authorization_expiration" name="work_authorization_expiration" type="date" class="mt-1 block w-full" :value="old('work_authorization_expiration', $user->profile->work_authorization_expiration ?? '')" />
             </div>
@@ -168,29 +172,9 @@
         </div>
     </form>
     <style>
-        img#showUserImage {
-            box-shadow: 5px 9px 18px;
-            border-radius: 50%;
-            width: 20%;
-            border: 2px solid #dfdfdf;
-        }
+
     </style>
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            const imageInput = document.querySelector('#user-image');
-            const displayImage = document.querySelector('#showUserImage');
 
-            imageInput.addEventListener('change', function(e) {
-                const reader = new FileReader();
-                
-                reader.onload = function(e) {
-                    displayImage.setAttribute('src', e.target.result);
-                }
-
-                if (e.target.files && e.target.files[0]) {
-                    reader.readAsDataURL(e.target.files[0]);
-                }
-            });
-        });
     </script>
 </section>
